@@ -12,6 +12,7 @@
 <script>
 /* eslint-disable */
     import firebase from 'firebase'
+    let self = this
     export default {
         name: 'login',
         data: function(){
@@ -24,7 +25,7 @@
             login: function(){
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
                     function(user){
-                        this.$router.replace('/HelloWorld')
+                        self.$router.replace('/HelloWorld')
                     },
                     function(err){
                         alert('Error. '+ err.message);
